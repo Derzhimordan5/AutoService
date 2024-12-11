@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:AutoService"
+             x:Class="AutoService.ContactsPage"
+             Title="Контакты"
+             BackgroundImageSource="Contact.jpg">
+
+    <Grid RowDefinitions="Auto, *, Auto" Padding="20">
+        <!-- Адрес -->
+        <Frame Grid.Row="0"
+               CornerRadius="15"
+               BackgroundColor="#AAFFFFFF"
+               Padding="20"
+               Margin="0,20,0,0"
+               HorizontalOptions="FillAndExpand"
+               VerticalOptions="Center">
+            <Label Text="Наш адрес: Перовская ул., 66, стр. 2, Москва"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"
+                   FontSize="Medium"
+                   TextColor="#555" />
+        </Frame>
+
+        <!-- Кнопка -->
+        <Button Grid.Row="2"
+                Text="Открыть на карте"
+                FontSize="Medium"
+                BackgroundColor="#FF5733"
+                TextColor="White"
+                CornerRadius="10"
+                Padding="10"
+                Clicked="OnOpenMapClicked"
+                HorizontalOptions="Center"
+                VerticalOptions="End"
+                Margin="0,0,0,20" />
+    </Grid>
+</ContentPage>
+

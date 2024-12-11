@@ -1,0 +1,73 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:AutoService"
+             x:Class="AutoService.MainPage"
+             Title="Главная">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <!-- Стиль для заголовка категорий -->
+            <Style x:Key="CategoryHeaderStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="Large" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="TextColor" Value="Aqua" />
+                <Setter Property="Padding" Value="10,5" />
+            </Style>
+
+            <!-- Стиль для услуг -->
+            <Style x:Key="ServiceItemStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="TextColor" Value="Ivory" />
+                <Setter Property="Margin" Value="10,5,0,5" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="10">
+            <!-- Заголовок -->
+            <Label Text="Выбор автомобиля и услуги"
+                   FontSize="Large"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   TextColor="#222"
+                   Margin="0,0,0,20" />
+
+            <!-- Список автомобилей -->
+            <Picker ItemsSource="{Binding Cars}"
+                    SelectedItem="{Binding SelectedCar}"
+                    ItemDisplayBinding="{Binding Make}" 
+                    Title="Выберите автомобиль" />
+
+            <!-- Список категорий с услугами -->
+            <Label Text="ТО" Style="{StaticResource CategoryHeaderStyle}" />
+            <Button Text="Замена масла (от 1200 рублей)"
+                    Style="{StaticResource ServiceItemStyle}"
+                    Clicked="OnServiceClicked" />
+            <Button Text="Замена воздушного фильтра (от 400 рублей)"
+                    Style="{StaticResource ServiceItemStyle}"
+                    Clicked="OnServiceClicked" />
+            <Button Text="Замена свечей зажигания (от 600 рублей)"
+                    Style="{StaticResource ServiceItemStyle}"
+                    Clicked="OnServiceClicked" />
+
+            <Label Text="Диагностика" Style="{StaticResource CategoryHeaderStyle}" />
+            <Button Text="Диагностика двигателя (от 1500 рублей)"
+                    Style="{StaticResource ServiceItemStyle}"
+                    Clicked="OnServiceClicked" />
+            <Button Text="Диагностика ходовой части (от 1000 рублей)"
+                    Style="{StaticResource ServiceItemStyle}"
+                    Clicked="OnServiceClicked" />
+            <Button Text="Диагностика электрооборудования (от 1200 рублей)"
+                    Style="{StaticResource ServiceItemStyle}"
+                    Clicked="OnServiceClicked" />
+
+            <!-- Кнопка для отправки email -->
+            <Button Text="Отправить запрос"
+                    BackgroundColor="Aqua"
+                    TextColor="White"
+                    Padding="10"
+                    Clicked="OnSendEmailClicked" />
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

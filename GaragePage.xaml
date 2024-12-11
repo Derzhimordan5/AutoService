@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:AutoService"
+             x:Class="AutoService.GaragePage">
+    <ScrollView>
+    <StackLayout Padding="10">
+        <Button Text="Добавить автомобиль" Clicked="OnAddCarPageClicked" />
+
+        <!-- CollectionView для отображения списка автомобилей -->
+        
+        <CollectionView ItemsSource="{Binding Cars}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Padding="10" Margin="5" BorderColor="Gray" CornerRadius="10" BackgroundColor="LightBlue">
+                        <StackLayout>
+                            <Label Text="{Binding Make}" FontSize="Large" TextColor="Black" />
+                                <Label Text="{Binding Model}" FontSize="Medium" TextColor="Black"/>
+                                <Label Text="{Binding Year}" FontSize="Small" TextColor="Black"/>
+                                <Label Text="{Binding Color}" FontSize="Small" TextColor="Black"/>
+                                <Label Text="{Binding LicensePlate}" FontSize="Small" TextColor="Black" />
+
+                            <!-- Кнопка удаления для каждого автомобиля -->
+                            <Button Text="Удалить" Clicked="OnDeleteCarClicked" CommandParameter="{Binding .}" />
+                        </StackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        
+    </StackLayout>
+    </ScrollView>
+</ContentPage>
